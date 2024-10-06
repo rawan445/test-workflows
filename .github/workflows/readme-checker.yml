@@ -1,0 +1,22 @@
+name: readme checker
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  check_readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: step Check README
+        run: |
+          if [ -f README.md ]; then
+              echo "File exists"
+          else
+              echo "File not found"
+              exit 1
+          fi
+      - name: step 2
+        run: echo "This is step 2"
+      - name: step 3
+        run: echo "This is step 3"
